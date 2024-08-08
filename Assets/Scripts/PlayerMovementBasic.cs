@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+namespace Player{
 public class PlayerMovement : MonoBehaviour
 {
+
+//The goal: https://www.youtube.com/watch?v=YnwOoxtgZQI - tile based travel
+//The basic understanding: https://www.youtube.com/watch?v=HmXU4dZbaMw - how to use input based system
 
     #region Variables
     public Rigidbody2D rb;
     public float movespeed;
     public InputAction playerInput;
+    private Vector2 moveDirection; 
     #endregion
-
-    Vector2 moveDirection = Vector2.zero;
 
     private void OnEnable(){
         playerInput.Enable();
@@ -21,17 +24,12 @@ public class PlayerMovement : MonoBehaviour
         playerInput.Disable();
     }
 
-
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
-
     // Update is called once per frame
     public void Update()
     {
-        moveDirection = playerInput.ReadValue<Vector2>(); 
+        moveDirection = playerInput.ReadValue<Vector2>();  //from video
+
+
     }
 
     public void FixedUpdate(){
@@ -39,4 +37,5 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+}
 }
