@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+namespace RobotPlayer{
 public class TileBasedPlayMovement : MonoBehaviour
 {
     //Based on vid: https://www.youtube.com/watch?v=YnwOoxtgZQI 
@@ -54,4 +55,5 @@ public class TileBasedPlayMovement : MonoBehaviour
 
     }
 
+}
 }
