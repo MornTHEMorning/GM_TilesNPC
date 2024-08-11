@@ -20,6 +20,8 @@ public class AppearingTextBox : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        textbox.SetActive(false);
+
         if(!player){
             Debug.Log("No Player reference; put player prefab into inspector");
             diagnosticsOkay = false;
@@ -28,7 +30,6 @@ public class AppearingTextBox : MonoBehaviour
         if(!textbox){
             Debug.Log("No Textbox reference; put npc's textbox into inspector");
             diagnosticsOkay = false;
-
         }
 
         if(range < 2.0){
@@ -37,7 +38,6 @@ public class AppearingTextBox : MonoBehaviour
         }
 
         diagnosticsOkay = true;
-       
     }
 
     public void FixedUpdate()
@@ -47,11 +47,12 @@ public class AppearingTextBox : MonoBehaviour
         }
 
     }
-
     private void CheckDistance(){
         //if the distance between the two is greater or equal, then set active or deactivate
         textbox.SetActive((Vector3.Distance((Vector3)this.transform.position, player.transform.position) <= range));
     }
+
+    //todo: add gizmos for debugging purposes, make it a collider instead? 
 
 }
 }
